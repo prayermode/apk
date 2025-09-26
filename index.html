@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer mode</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a5f;
+            --secondary: #2a5b84;
+            --accent: #d4af37;
+            --light: #f8f9fa;
+            --dark: #0f1c2e;
+            --light-accent: #e9d8a6;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 Q40,5 50,30 T80,20" fill="none" stroke="rgba(42, 91, 132, 0.03)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 58, 95, 0.9) 0%, rgba(42, 91, 132, 0.9) 100%), url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="55" fill="none" stroke="rgba(212, 175, 55, 0.15)" stroke-width="1"/></svg>');
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+            position: relative;
+        }
+        
+        .hero h1 span:after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: rgba(212, 175, 55, 0.3);
+            z-index: -1;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(26, 58, 95, 0.1);
+        }
+        
+        .feature-card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(26, 58, 95, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--primary);
+            font-size: 2rem;
+            border: 2px solid var(--light-accent);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* App Showcase */
+        .app-showcase {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, #f0f4f8, #e6e9ff);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-showcase:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M40,40 C80,20 120,20 160,40" fill="none" stroke="rgba(26, 58, 95, 0.05)" stroke-width="2"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .app-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+        }
+        
+        .app-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .phone-mockup {
+            position: relative;
+            background: var(--dark);
+            border-radius: 40px;
+            padding: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transform: rotateY(-5deg);
+            transition: transform 0.5s ease;
+            width: 280px;
+            height: 580px;
+            margin: 0 auto;
+        }
+        
+        .app-image:hover .phone-mockup {
+            transform: rotateY(5deg);
+        }
+        
+        .phone-screen {
+            background: linear-gradient(135deg, #1a3a5f 0%, #2a5b84 100%);
+            border-radius: 30px;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            color: white;
+            position: relative;
+        }
+        
+        .app-time {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-top: 2rem;
+        }
+        
+        .app-date {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        
+        .app-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .app-status {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            border-radius: 20px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .app-content {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+        
+        .app-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .app-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .app-bullets {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .app-bullets li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .app-bullets li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+        }
+        
+        /* Security Section */
+        .security {
+            padding: 5rem 0;
+            background-color: white;
+            text-align: center;
+        }
+        
+        .security-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e9ecef;
+            transition: var(--transition);
+        }
+        
+        .security-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .security-icon {
+            font-size: 3rem;
+            color: #43a047;
+            margin-right: 1.5rem;
+        }
+        
+        .security-text {
+            text-align: left;
+        }
+        
+        .security-text h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .security-text p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .virustotal-link {
+            display: inline-flex;
+            align-items: center;
+            color: #43a047;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .virustotal-link:hover {
+            color: #2e7d32;
+        }
+        
+        .virustotal-link i {
+            margin-left: 0.5rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2.5rem;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .cta-content {
+            background: linear-gradient(135deg, var(--accent) 0%, #e9c46a 100%);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn-dark {
+            background: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-dark:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center; 
+            gap: 0.5rem; 
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .app-container {
+                flex-direction: column;
+            }
+            
+            .security-badge {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .security-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem;
+            }
+            
+            .phone-mockup {
+                width: 240px;
+                height: 500px;
+            }
+            
+            .app-time {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#app">App</a></li>
+                    <li><a href="#security">Security</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Introducing <span>Prayer mode</span></h1>
+                <p>The app that automatically silences your device during prayer times, helping you maintain focus and reverence without distractions.</p>
+                <div>
+                    <a href="https://prayermode.github.io/apk/prayer-mode.apk" class="btn">Download Now</a>
+                    <a href="#features" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Smart Silence Technology</h2>
+                <p>Prayer mode intelligently manages your device DND, allowing you to focus deeply in prayer and avoid distracting those praying around you</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <h3>Automatic Silencing</h3>
+                    <p>Your device automatically enters silent mode during scheduled prayer times, eliminating distractions.</p>
+                </div>
+                <div class="feature-card animate delay-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Custom Settings</h3>
+                    <p>Tailor prayer durations, silence periods, and notification preferences to perfectly fit your spiritual routine and personal needs.</p>
+                </div>
+                <div class="feature-card animate delay-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location Aware</h3>
+                    <p>Automatically adjusts prayer times based on your location and local sunrise/sunset.</p>
+                </div>
+                <div class="feature-card animate delay-3">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <h3>Useful Notifications</h3>
+                    <p>Set it once, the app does the rest! It works automatically in the background, keeping you informed via notifications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Showcase -->
+    <section class="app-showcase" id="app">
+        <div class="container">
+            <div class="app-container">
+                <div class="app-image">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="app-time">13:25</div>
+                            <div class="app-date">Friday, June 20</div>
+                            <div class="app-title">Prayer mode</div>
+                            <div class="app-status">
+                                <i class="fas fa-volume-mute"></i> Do Not Disturb activated for Al Jumua
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-content">
+                    <h2>Pray without being disturbed during your Salah.</h2>
+                    <p>Prayer mode is designed for individuals who value uninterrupted spiritual practice. Our intelligent system ensures your device respects your sacred moments without requiring manual intervention.</p>
+                    
+                    <ul class="app-bullets">
+                        <li>23 Prayer Calculation Methods powered by aladhan.com API</li>
+                        <li>Customizable prayer duration and settings</li>
+                        <li>Notification of time adjustments when travelling</li>
+                        <li>Emergency Bypass : Even in DND mode, alarms and earpiece audio for all calls remain audible</li>
+                        <li>Battery efficient design with minimal resource usage</li>
+                    </ul>
+                    
+                    <p>Stay tuned! Coming soon to Galaxy Store and other platforms. Be among the first to experience this revolutionary app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security" id="security">
+        <div class="container">
+            <div class="section-title">
+                <h2>Security & Trust</h2>
+                <p>Your safety is our top priority. We've taken extra steps to ensure Prayer mode is completely safe to use.</p>
+            </div>
+            <div class="security-content animate">
+                <div class="security-badge">
+                    <div class="security-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="security-text">
+                        <h3>Malware-Free Guarantee</h3>
+                        <p>This application has been scanned by VirusTotal, a trusted security service that uses over 70 antivirus engines to detect malware and other threats.</p>
+                        <a href="https://www.virustotal.com/gui/file/e5b1648291c81a4daa473062c3a59f969994adfaed86eaf4ee00a04d198221aa" class="virustotal-link" target="_blank">
+                            View Full VirusTotal Report <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <p style="margin-top: 2rem; color: #666; font-style: italic;">
+                    Note: Some antivirus software may flag APK files as potentially harmful due to their nature, even when they're completely safe. 
+                    Our VirusTotal report confirms that no major antivirus engines detect any threats in Prayer mode.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>User Experiences</h2>
+                <p>How Prayer mode has transformed spiritual practices</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card animate">
+                    <p class="testimonial-text">As someone who prays five times a day, this app has been a game-changer. No more worrying about forgetting to silence my phone or missing notifications during non-prayer times.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">A</div>
+                        <div class="author-info">
+                            <h4>Ahmed</h4>
+                            <p>Beta Tester</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate delay-1">
+                    <p class="testimonial-text">Prayer mode has helped our family maintain our devotional practices without digital interruptions. The customization options allow each family member to set their preferred settings.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">S</div>
+                        <div class="author-info">
+                            <h4>Sarah</h4>
+                            <p>Teacher</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate delay-2">
+                    <p class="testimonial-text">The notifications about silencing, Fajr and Friday prayers and many others are received in a timely way, which keep me informed without the need to open the app and that's awsome!</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">M</div>
+                        <div class="author-info">
+                            <h4>Mustafa</h4>
+                            <p>Student</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate delay-3">
+                    <p class="testimonial-text">As a busy traveler, consistent prayer was tough. Prayer mode made it easy! Its auto-adjusting times and DND mode bring peace and discipline to my hectic schedule, anywhere. Essential.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">C</div>
+                        <div class="author-info">
+                            <h4>Chakir</h4>
+                            <p>Business man</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate delay-4">
+                    <p class="testimonial-text">For someone attending the mosque daily, distractions are unwelcome. The app perfectly silences my phone for each prayer, ensuring deep, uninterrupted devotion. A true blessing for focus.</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">A</div>
+                        <div class="author-info">
+                            <h4>Abdessamad</h4>
+                            <p>Merchant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Prayer mode</h3>
+                    <p>Ideas that come true for a better life.</p>
+                    <div class="social-links">
+                        <!--<a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>-->
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>The App</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#app">How It Works</a></li>
+                        <li><a href="#security">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://prayermode.github.io/prayermode/terms.html">Terms of Service</a></li>
+                        <li><a href="https://prayermode.github.io/prayermode/privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> prayer.mode@outlook.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Prayer mode. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(element);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Update time in phone mockup
+            function updateMockupTime() {
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                document.querySelector('.app-time').textContent = `${hours}:${minutes}`;
+            }
+            
+            updateMockupTime();
+            setInterval(updateMockupTime, 60000);
+        });
+    </script>
+</body>
+</html>
