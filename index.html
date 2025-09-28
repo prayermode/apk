@@ -83,9 +83,6 @@
         .nav-links {
             display: flex;
             list-style: none;
-			justify-content: center;
-			flex-wrap: wrap;
-			margin: 0 auto;
         }
         
         .nav-links li {
@@ -220,7 +217,7 @@
             color: var(--primary);
         }
         
-        /************************* Features Section *****************************/
+        /* Features Section */
         .features {
             padding: 5rem 0;
             background-color: white;
@@ -312,7 +309,7 @@
             color: var(--primary);
         }
         
-        /****************************************** App Showcase *********************************/
+        /****************************** App Showcase **********************************/
         .app-showcase {
             padding: 5rem 0;
             background: linear-gradient(to bottom, #f0f4f8, #e6e9ff);
@@ -401,7 +398,7 @@
             color: var(--accent);
         }
         
-        /****************** Security Section ************************/
+        /********************************* Security Section **********************************/
         .security {
             padding: 5rem 0;
             background-color: white;
@@ -468,17 +465,7 @@
             margin-left: 0.5rem;
         }
         
-        /* Testimonials */
-		/* Testimonials Section Title Color */
-		.testimonials .section-title h2 {
-			color: var(--accent) !important; /* Gold color */
-			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-		}
-
-		.testimonials .section-title p {
-			color: rgba(255, 255, 255, 0.9) !important; /* Also brighten the subtitle */
-		}		
-		
+        /***************************** Testimonials ******************************/
         .testimonials {
             padding: 5rem 0;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -548,6 +535,16 @@
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
         }
+		
+		/* Testimonials Section Title Color */
+.testimonials .section-title h2 {
+    color: var(--accent) !important; /* Gold color */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.testimonials .section-title p {
+    color: rgba(255, 255, 255, 0.9) !important; /* Also brighten the subtitle */
+}
         
         /* CTA Section */
         .cta {
@@ -1254,7 +1251,20 @@
                     });
                 });
             });
-            	
+            
+            // Update time in phone mockup
+            function updateMockupTime() {
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                document.querySelector('.app-time').textContent = `${hours}:${minutes}`;
+            }
+            
+            updateMockupTime();
+            setInterval(updateMockupTime, 60000);
+        });
+		
+		
 		       // Screenshots Carousel Functionality
         document.addEventListener('DOMContentLoaded', function() {
             const carousel = document.querySelector('.screenshots-carousel');
