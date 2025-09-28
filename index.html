@@ -61,11 +61,12 @@
             z-index: 1000;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(10px);
+			text-align: center;
         }
         
         .navbar {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 0 1rem;
         }
@@ -82,6 +83,9 @@
         .nav-links {
             display: flex;
             list-style: none;
+			justify-content: center;
+			flex-wrap: wrap;
+			margin: 0 auto;
         }
         
         .nav-links li {
@@ -216,7 +220,7 @@
             color: var(--primary);
         }
         
-        /* Features Section */
+        /************************* Features Section *****************************/
         .features {
             padding: 5rem 0;
             background-color: white;
@@ -308,7 +312,7 @@
             color: var(--primary);
         }
         
-        /* App Showcase */
+        /****************************************** App Showcase *********************************/
         .app-showcase {
             padding: 5rem 0;
             background: linear-gradient(to bottom, #f0f4f8, #e6e9ff);
@@ -338,69 +342,22 @@
         .app-image {
             flex: 1;
             min-width: 300px;
-            max-width: 500px;
-            position: relative;
-            perspective: 1000px;
-        }
-        
-        .phone-mockup {
-            position: relative;
-            background: var(--dark);
-            border-radius: 40px;
-            padding: 15px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            transform: rotateY(-5deg);
-            transition: transform 0.5s ease;
-            width: 280px;
-            height: 580px;
-            margin: 0 auto;
-        }
-        
-        .app-image:hover .phone-mockup {
-            transform: rotateY(5deg);
-        }
-        
-        .phone-screen {
-            background: linear-gradient(135deg, #1a3a5f 0%, #2a5b84 100%);
-            border-radius: 30px;
-            overflow: hidden;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem;
-            color: white;
-            position: relative;
-        }
-        
-        .app-time {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-top: 2rem;
-        }
-        
-        .app-date {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            margin-bottom: 2rem;
-        }
-        
-        .app-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 1rem 0;
+            max-width: 600px;
             text-align: center;
-            font-family: 'Playfair Display', serif;
         }
         
-        .app-status {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 1rem;
-            border-radius: 20px;
+        .app-showcase-image {
             width: 100%;
-            text-align: center;
-            margin-bottom: 2rem;
+            max-width: 1024px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .app-showcase-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
         }
         
         .app-content {
@@ -444,7 +401,7 @@
             color: var(--accent);
         }
         
-        /* Security Section */
+        /****************** Security Section ************************/
         .security {
             padding: 5rem 0;
             background-color: white;
@@ -512,6 +469,16 @@
         }
         
         /* Testimonials */
+		/* Testimonials Section Title Color */
+		.testimonials .section-title h2 {
+			color: var(--accent) !important; /* Gold color */
+			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+		}
+
+		.testimonials .section-title p {
+			color: rgba(255, 255, 255, 0.9) !important; /* Also brighten the subtitle */
+		}		
+		
         .testimonials {
             padding: 5rem 0;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -803,6 +770,161 @@
                 font-size: 2.5rem;
             }
         }
+		       /******************** Screenshots Section **************************************/
+        .screenshots {
+            padding: 5rem 0;
+            background: linear-gradient(to bottom, #f0f4f8, #e6e9ff);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .screenshots-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+        
+        .screenshots-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+            gap: 2rem;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .screenshots-carousel::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+        
+		.screenshot-item {
+			flex: 0 0 auto;
+			width: 280px; /* Adjust this as needed */
+			height: 497px; /* 280 * (16/9) = 497px */
+			scroll-snap-align: start;
+			border-radius: 30px;
+			overflow: hidden;
+			box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+			transition: var(--transition);
+			position: relative;
+			border: 8px solid var(--dark);
+			background: var(--dark); /* Add background color to match border */
+		}
+        
+        .screenshot-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+		  
+        .screenshot-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem 1rem 1rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .screenshot-item:hover .screenshot-overlay {
+            transform: translateY(0);
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border: none;
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+        
+        .carousel-nav:hover {
+            background: var(--primary);
+            color: var(--accent);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-nav.prev {
+            left: 0;
+        }
+        
+        .carousel-nav.next {
+            right: 0;
+        }
+        
+        .screenshot-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(26, 58, 95, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .indicator.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .screenshots-container {
+                padding: 0 40px;
+            }
+            
+            .screenshot-item {
+                width: 250px;
+                height: 500px;
+            }
+            
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .screenshots-container {
+                padding: 0 30px;
+            }
+            
+            .screenshot-item {
+                width: 200px;
+                height: 400px;
+            }
+        }		
     </style>
 </head>
 <body>
@@ -812,10 +934,11 @@
             <nav class="navbar">
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#app">App</a></li>
+                    <li><a href="#app">Overview</a></li>
                     <li><a href="#security">Security</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#screenshots">Screenshots</a></li>
+					<li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -828,7 +951,7 @@
                 <h1>Introducing <span>Prayer mode</span></h1>
                 <p>The app that automatically silences your device during prayer times, helping you maintain focus and reverence without distractions.</p>
                 <div>
-                    <a href="https://github.com/prayermode/apk/releases/latest/download/prayer-mode.apk" class="btn">Download Now</a>
+                    <a href="https://prayermode.github.io/apk/prayer-mode.apk" class="btn">Download Now</a>
                     <a href="#features" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
@@ -880,16 +1003,7 @@
         <div class="container">
             <div class="app-container">
                 <div class="app-image">
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="app-time">13:25</div>
-                            <div class="app-date">Friday, June 20</div>
-                            <div class="app-title">Prayer mode</div>
-                            <div class="app-status">
-                                <i class="fas fa-volume-mute"></i> Do Not Disturb activated for Al Jumua
-                            </div>
-                        </div>
-                    </div>
+					<img src="feature_EN.jpg" alt="Feature" class="app-showcase-image">
                 </div>
                 <div class="app-content">
                     <h2>Pray without being disturbed during your Salah.</h2>
@@ -903,7 +1017,7 @@
                         <li>Battery efficient design with minimal resource usage</li>
                     </ul>
                     
-                    <p>Stay tuned! Coming soon to Galaxy Store and other platforms. Be among the first to experience this revolutionary app.</p>
+                    <p>Be among the first to experience this handy app.</p>
                 </div>
             </div>
         </div>
@@ -998,6 +1112,71 @@
             </div>
         </div>
     </section>
+	
+	    <!-- Screenshots Section -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <div class="section-title">
+                <h2>Screenshots</h2>
+                <p>Explore the intuitive interface and powerful features of Prayer mode</p>
+            </div>
+            
+            <div class="screenshots-container">
+                <button class="carousel-nav prev" aria-label="Previous screenshot">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="screenshots-carousel">
+                    <!-- Screenshot 1 -->
+                    <div class="screenshot-item">
+                        <img src="screenshot1.png" alt="Prayer mode Home Screen">
+                        <!--<div class="screenshot-overlay">
+                            <h3>Home Screen</h3>
+                            <p>Clean interface showing user settings</p>
+                        </div>-->
+                    </div>
+                    
+                    <!-- Screenshot 2 -->
+                    <div class="screenshot-item">
+                        <img src="screenshot2.png" alt="Prayer mode Dark Theme">
+                    </div>
+                    
+                    <!-- Screenshot 3 -->
+                    <div class="screenshot-item">
+                        <img src="screenshot3.png" alt="Prayer Mode Notifications">
+                    </div>
+                    
+                    <!-- Screenshot 4 -->
+                    <div class="screenshot-item">
+                        <img src="screenshot4.png" alt="Prayer Mode Location Settings">
+                    </div>
+                    
+                    <!-- Screenshot 5 -->
+                    <div class="screenshot-item">
+                        <img src="screenshot5.png" alt="Prayer Mode DND Settings">
+                    </div>
+                    
+                    <!-- Screenshot 6 -->
+                    <div class="screenshot-item">
+                        <img src="screenshot6.png" alt="Prayer Mode Prayer Times">
+                    </div>
+                </div>
+                
+                <button class="carousel-nav next" aria-label="Next screenshot">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="screenshot-indicators">
+                    <div class="indicator active" data-index="0"></div>
+                    <div class="indicator" data-index="1"></div>
+                    <div class="indicator" data-index="2"></div>
+                    <div class="indicator" data-index="3"></div>
+                    <div class="indicator" data-index="4"></div>
+                    <div class="indicator" data-index="5"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer id="contact">
@@ -1017,8 +1196,10 @@
                     <h3>The App</h3>
                     <ul class="footer-links">
                         <li><a href="#features">Features</a></li>
-                        <li><a href="#app">How It Works</a></li>
+                        <li><a href="#app">Overview</a></li>
                         <li><a href="#security">Security</a></li>
+						<li><a href="#testimonials">Testimonials</a></li>
+						<li><a href="#screenshots">Screenshots</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1031,7 +1212,7 @@
                 <div class="footer-col">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-envelope"></i> prayer.mode@outlook.com</li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:prayer.mode@outlook.com">prayer.mode@outlook.com</a></li>
                     </ul>
                 </div>
             </div>
@@ -1073,19 +1254,79 @@
                     });
                 });
             });
+            	
+		       // Screenshots Carousel Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.screenshots-carousel');
+            const prevButton = document.querySelector('.carousel-nav.prev');
+            const nextButton = document.querySelector('.carousel-nav.next');
+            const indicators = document.querySelectorAll('.indicator');
+            const screenshotItems = document.querySelectorAll('.screenshot-item');
             
-            // Update time in phone mockup
-            function updateMockupTime() {
-                const now = new Date();
-                const hours = now.getHours().toString().padStart(2, '0');
-                const minutes = now.getMinutes().toString().padStart(2, '0');
-                document.querySelector('.app-time').textContent = `${hours}:${minutes}`;
+            let currentIndex = 0;
+            const itemWidth = screenshotItems[0].offsetWidth + 32; // width + gap
+            
+            // Function to update carousel position
+            function updateCarousel() {
+                carousel.scrollTo({
+                    left: currentIndex * itemWidth,
+                    behavior: 'smooth'
+                });
+                
+                // Update active indicator
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentIndex);
+                });
             }
             
-            updateMockupTime();
-            setInterval(updateMockupTime, 60000);
+            // Previous button click
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = screenshotItems.length - 1;
+                }
+                updateCarousel();
+            });
+            
+            // Next button click
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < screenshotItems.length - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateCarousel();
+            });
+            
+            // Indicator clicks
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = parseInt(indicator.getAttribute('data-index'));
+                    updateCarousel();
+                });
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevButton.click();
+                } else if (e.key === 'ArrowRight') {
+                    nextButton.click();
+                }
+            });
+            
+            // Update indicators on scroll
+            carousel.addEventListener('scroll', () => {
+                const scrollPosition = carousel.scrollLeft;
+                currentIndex = Math.round(scrollPosition / itemWidth);
+                
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentIndex);
+                });
+            });
         });
-    </script>
+    
+  </script>
 </body>
-
 </html>
