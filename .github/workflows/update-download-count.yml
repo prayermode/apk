@@ -1,0 +1,70 @@
+name: Update Download Count
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight UTC
+  workflow_dispatch: # Allows you to run the workflow manually
+
+jobs:
+  update_count:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository so we can commit the file back
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      # Step 2: Run a script to fetch the download count and update a file
+      - name: Update download count file
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+
+            // Get all releases from the GitHub API
+            const releases = await github.paginate(github.rest.repos.listReleases, {
+              owner,
+              repo,
+              per_page: 100,
+            });
+
+            let totalDownloads = 0;
+            const targetApkName = 'prayer-mode.apk'; // Make sure this matches your APK's filename
+
+            // Sum the download_count for our specific APK file across all releases
+            for (const release of releases) {
+              for (const asset of release.assets) {
+                if (asset.name === targetApkName) {
+                  totalDownloads += asset.download_count;
+                }
+              }
+            }
+
+            console.log(`Total downloads for ${targetApkName}: ${totalDownloads}`);
+
+            // Create or update the count.txt file in the repository
+            const filePath = 'count.txt';
+            const message = `Update download count: ${totalDownloads}`;
+            const content = Buffer.from(`${totalDownloads}`).toString('base64');
+
+            // Check if the file already exists to get its SHA (needed for update)
+            let fileSha;
+            try {
+              const { data } = await github.rest.repos.getContent({
+                owner,
+                repo,
+                path: filePath,
+              });
+              fileSha = data.sha;
+            } catch (error) {
+              if (error.status !== 404) throw error; // File not found is expected on first run
+            }
+
+            // Create or update the file in the repository
+            await github.rest.repos.createOrUpdateFileContents({
+              owner,
+              repo,
+              path: filePath,
+              message: message,
+              content: content,
+              sha: fileSha, // This will be undefined if creating a new file
+            });
