@@ -149,30 +149,33 @@
             z-index: 2;
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
+		.hero h1 {
+   			font-size: 3.5rem;
+    		margin-bottom: 2rem;
+    		font-weight: 700;
+    		font-family: 'Playfair Display', serif;
+    		text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+   			position: relative;
+    		display: inline-block;
+		}
+
+		.hero h1:after {
+    		content: '';
+    		position: absolute;
+    		width: 70px;
+   	 		height: 4px;
+    		background: var(--accent);
+    		bottom: -15px;
+    		left: 50%;
+    		transform: translateX(-50%);
+    		border-radius: 2px;
+		}
         
         .hero h1 span {
             color: var(--accent);
             position: relative;
         }
-        
-        .hero h1 span:after {
-            content: "";
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 15px;
-            background: rgba(212, 175, 55, 0.3);
-            z-index: -1;
-        }
-        
+   
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
@@ -946,18 +949,18 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Introducing <span>Prayer mode</span></h1>
-                <p>The app that automatically silences your device during prayer times, helping you maintain focus and reverence without distractions.</p>
-                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.95;">Download it now for free, no Ads, no hidden costs, no data collection.</p>          
-   				<p style="font-size: 1rem; margin-bottom: 1.5rem; opacity: 0.8;"><strong>Last updated (v1.1):</strong> 11/10/2025</p>
+                <p>The app that auto-silences your device during prayer times, helping you maintain focus and reverence without distractions. Download it now for free, no Ads, no hidden costs, no data collection.</p>
 				<p style="font-size: 1rem; margin-bottom: 0rem; opacity: 0.8;">Available languages</p>
-				<p style="font-size: 1rem; margin-bottom: 1.5rem; opacity: 0.8;">English, العربية, Français, Türkçe, اُردُو, Bahasa Indonesia, Bahasa Malaysia.</p>
-			<div style="max-width: 450px; margin: 2rem auto; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; text-align: center;">                
-                <p style="margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.9;"><strong>First time installing from outside Google Play?</strong></p>
+				<p style="font-size: 1rem; margin-bottom: 0rem; opacity: 0.8;">English, العربية, Français, Türkçe, اُردُو, Bahasa Indonesia, Bahasa Malaysia.</p>
+				<p style="font-size: 1rem; margin-bottom: 0rem; opacity: 0.8;">Supported on Android 7.1 and later</p>
+				<p style="font-size: 1rem; margin-bottom: 0rem; opacity: 0.8;">Last updated (v1.1): 11/10/2025</p>
+			<div style="max-width: 450px; margin: 2rem auto; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px; text-align: center;">  
+ 			    <p style="margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.9;"><strong>First time installing from outside Google Play?</strong></p>
                 <p style="margin-bottom: 1rem; font-size: 0.85rem; opacity: 0.8;">You may need to enable "Install from unknown sources".</p>
                 <a href="https://prayermode.github.io/prayermode/help.html" style="color: #ADD8E6; text-decoration: underline; font-weight: bold;">View step-by-step installation guide</a>
 			</div>
 			<div>
-                <a href="https://github.com/prayermode/apk/releases/download/v1.1/prayer-mode.apk" class="btn">Download Now</a>
+                <a href="https://github.com/prayermode/apk/releases/download/v1.0/prayer-mode.apk" class="btn">Download Now</a>
             </div>
             </div>
         </div>
@@ -1345,6 +1348,7 @@
   </script>
 </body>
 </html>
+
 
 
 
