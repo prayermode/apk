@@ -2,5 +2,6 @@
   "versionCode": 2,
   "versionName": "1.1",
   "apkUrl": "https://prayermode.github.io/apk/prayer-mode.apk",
+  "releaseNotesUrl": "https://prayermode.github.io/release-notes",
   "minRequired": false
 }
