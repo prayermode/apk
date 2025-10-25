@@ -350,95 +350,96 @@
             color: var(--primary);
         }
         
-        /****************************** App Showcase **********************************/
-        .app-showcase {
-            padding: 5rem 0;
-            background: linear-gradient(to bottom, #f0f4f8, #e6e9ff);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .app-showcase:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M40,40 C80,20 120,20 160,40" fill="none" stroke="rgba(26, 58, 95, 0.05)" stroke-width="2"/></svg>');
-            opacity: 0.3;
-        }
-        
-        .app-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 4rem;
-        }
-        
-        .app-image {
-            flex: 1;
-            min-width: 300px;
-            max-width: 600px;
-            text-align: center;
-        }
-        
-        .app-showcase-image {
-            width: 100%;
-            max-width: 1024px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-        
-        .app-showcase-image:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        }
-        
-        .app-content {
-            flex: 1;
-            min-width: 300px;
-            max-width: 600px;
-        }
-        
-        .app-content h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .app-content p {
-            margin-bottom: 1.5rem;
-            color: #555;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        .app-bullets {
-            list-style: none;
-            margin: 2rem 0;
-        }
-        
-        .app-bullets li {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-        
-        .app-bullets li:before {
-            content: "\f00c";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--accent);
-        }
-        
+		/****************************** App Showcase **********************************/
+.app-showcase {
+    padding: 5rem 0;
+    background: linear-gradient(to bottom, #f0f4f8, #e6e9ff);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.app-showcase:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M40,40 C80,20 120,20 160,40" fill="none" stroke="rgba(26, 58, 95, 0.05)" stroke-width="2"/></svg>');
+    opacity: 0.3;
+}
+
+/* NEW: Centering Container */
+.app-content-centered {
+    max-width: 850px; /* Keep content readable */
+    margin: 0 auto; /* Centers the content block itself */
+}
+
+/* NEW: Image Wrapper */
+.app-image-in-content {
+    max-width: 500px; /* Sets a limit on image width */
+    margin: 2rem auto 2.5rem auto; /* Vertical margin, horizontal center */
+    text-align: center;
+}
+
+.app-showcase-image {
+    width: 100%;
+    max-width: 1024px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.app-showcase-image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* MODIFIED: H2 inside the new container */
+.app-content-centered h2 {
+    font-size: 2.5rem; /* Increased size for better impact */
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+/* MODIFIED: Paragraphs inside the new container */
+.app-content-centered p {
+    margin-bottom: 1.5rem;
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 700px; /* Ensures text doesn't span too wide */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* MODIFIED: Bullets (Left-aligned within the centered block) */
+.app-bullets {
+    list-style: none;
+    max-width: 550px; /* Limit width for readability */
+    margin: 2rem auto; /* Center the list block */
+    text-align: left; /* Crucial: List items text should be left-aligned */
+}
+
+.app-bullets li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.app-bullets li:before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+}
+       
         /********************************* Security Section **********************************/
         .security {
             padding: 5rem 0;
@@ -1256,29 +1257,31 @@
     </section>
 
     <!-- Showcase -->
-    <section class="app-showcase" id="app">
-        <div class="container">
-            <div class="app-container">
-                <div class="app-image">
-					<img src="feature_EN.jpg" alt="Feature" class="app-showcase-image">
-                </div>
-                <div class="app-content">
-                    <h2>Pray without being disturbed during your Salah.</h2>
-                    <p>Prayer mode is designed for individuals who value uninterrupted spiritual practice. Our intelligent system ensures your device respects your sacred moments without requiring manual intervention.</p>
-                    
-                    <ul class="app-bullets">
-                        <li>23 Prayer Calculation Methods powered by aladhan.com API</li>
-                        <li>Customizable prayer duration and settings</li>
-                        <li>Notification of time adjustments when travelling</li>
-                        <li>Emergency Bypass : Even in DND mode, alarms and earpiece audio for all calls remain audible</li>
-                        <li>Battery efficient design with minimal resource usage</li>
-                    </ul>
-                    
-                    <p>Be among the first to experience this handy app.</p>
-                </div>
+<section class="app-showcase" id="app">
+    <div class="container">
+        <div class="app-content-centered">
+            
+            <h2>Pray without being disturbed during your Salah.</h2>
+
+            <div class="app-image-in-content">
+                <img src="feature_EN.jpg" alt="Feature" class="app-showcase-image">
             </div>
+            
+            <p>Prayer mode is designed for individuals who value uninterrupted spiritual practice. Our intelligent system ensures your device respects your sacred moments without requiring manual intervention.</p>
+            
+            <ul class="app-bullets">
+                <li>23 Prayer Calculation Methods powered by aladhan.com API</li>
+                <li>Customizable prayer duration and settings</li>
+                <li>Notification of time adjustments when travelling</li>
+                <li style="font-weight: 600;">Emergency Bypass : Even in DND mode, alarms and earpiece audio for all calls remain audible</li>
+                <li>Battery efficient design with minimal resource usage</li>
+            </ul>
+            
+            <p>Be among the first to experience this handy app.</p>
         </div>
-    </section>
+    </div>
+</section>
+	
     <!-- Security -->
     <section class="security" id="security">
         <div class="container">
@@ -1642,5 +1645,6 @@
   </script>
 </body>
 </html>
+
 
 
