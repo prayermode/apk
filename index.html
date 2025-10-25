@@ -61,40 +61,59 @@
             z-index: 1000;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
             backdrop-filter: blur(10px);
-			text-align: center;
         }
-
-	/*	header {
-    background: 
-        url('arabesque.jpg');
-    color: white;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(10px);
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}*/
         
         .navbar {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 0 1rem;
+            position: relative;
         }
-        
-        .logo {
+
+        /* Menu Toggle for Mobile (Default Hidden) */
+        .menu-toggle {
+            display: none; 
+            cursor: pointer;
             font-size: 1.8rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            color: var(--primary);
-            font-family: 'Playfair Display', serif;
+            color: white;
+            padding: 5px;
+            transition: var(--transition);
         }
+
+        .menu-toggle:hover {
+            color: var(--accent);
+        }
+
+/* Logo/Title for Mobile View */
+.logo-mobile {
+    display: none; 
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    /* Added alignment for the tagline */
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1; /* Adjust spacing */
+}
+
+/* NEW CSS for the Tagline */
+.logo-tagline {
+    font-size: 0.7rem; /* Make it small */
+    font-style: italic; /* Make it italic */
+    font-weight: 400;
+    opacity: 0.8; /* Slightly fade it out */
+    font-family: 'Poppins', sans-serif; /* Use the body font for legibility */
+}
+
+/* Ensure the logo-mobile is displayed on smaller screens */
+@media (max-width: 992px) {
+    .logo-mobile {
+        display: flex; /* Changed from block to flex for column alignment */
+        margin-left: 1rem;
+    }
+}
         
         .nav-links {
             display: flex;
@@ -386,7 +405,7 @@
         }
         
         .app-content h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
             font-family: 'Playfair Display', serif;
@@ -559,14 +578,14 @@
         }
 		
 		/* Testimonials Section Title Color */
-.testimonials .section-title h2 {
-    color: var(--accent) !important; /* Gold color */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+        .testimonials .section-title h2 {
+            color: var(--accent) !important; 
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-.testimonials .section-title p {
-    color: rgba(255, 255, 255, 0.9) !important; /* Also brighten the subtitle */
-}
+        .testimonials .section-title p {
+            color: rgba(255, 255, 255, 0.9) !important; 
+        }
         
         /* CTA Section */
         .cta {
@@ -596,13 +615,13 @@
             font-size: 1.1rem;
         }
         
-        .btn-dark {
+        -dark {
             background: var(--primary);
             color: white;
             border: 2px solid var(--primary);
         }
         
-        .btn-dark:hover {
+        -dark:hover {
             background: transparent;
             color: var(--primary);
         }
@@ -724,46 +743,201 @@
             animation-delay: 0.3s;
         }
         
-        /* Responsive Design */
-        @media (max-width: 768px) {
+        /* About Us Section */
+        .about {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .mission-statement {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 0 1rem;
+        }
+        
+        .about-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-statement h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .mission-statement p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: var(--transition);
+            border: 1px solid rgba(26, 58, 95, 0.1);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .value-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .call-to-action-about {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(26, 58, 95, 0.05);
+            border-radius: 15px;
+        }
+        
+        .call-to-action-about p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+		/* Responsive Design */
+        @media (max-width: 992px) {
+            /* Header and Mobile Menu Setup */
+            header .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
             .navbar {
-                flex-direction: column;
-                padding: 1rem;
+                justify-content: space-between; 
             }
-            
+            .logo-mobile {
+                display: block; 
+                margin-left: 1rem;
+            }
+            .menu-toggle {
+                display: block; 
+                order: -1; /* Place toggle on the left */
+            }
+
             .nav-links {
-                margin-top: 1.5rem;
-                justify-content: center;
+                /* Mobile Menu Styles (Hidden by default) */
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px; /* Below header */
+                left: 0;
+                width: 80%;
+				left: 50%;
+  				transform: translateX(-50%);
+                background: var(--primary); 
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                padding: 1rem 0;
+                z-index: 999;
+                text-align: center;
+                border-bottom: 3px solid var(--accent);
             }
-            
+
+            .nav-links.active {
+                display: flex; /* Show when active */
+				max-height: calc(100vh - 60px); /* Max height is viewport height minus header height (approx. 60px) */
+        overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+        -webkit-overflow-scrolling: touch; /* Improved scrolling performance on iOS */
+            }
+
             .nav-links li {
-                margin: 0 1rem;
+                margin: 0;
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
-            
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                padding: 10px 0;
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 80vh; 
+            }
             .hero h1 {
                 font-size: 2.5rem;
+                margin-bottom: 2.5rem; 
             }
-            
             .hero p {
                 font-size: 1.1rem;
             }
-            
             .section-title h2 {
                 font-size: 2rem;
             }
-            
             .app-container {
                 flex-direction: column;
             }
-            
+            .app-image, .app-content {
+                min-width: unset;
+                max-width: 100%;
+            }
+            .app-showcase {
+                padding: 3rem 0;
+            }
             .security-badge {
                 flex-direction: column;
                 text-align: center;
+                padding: 1rem;
             }
-            
             .security-icon {
                 margin-right: 0;
                 margin-bottom: 1rem;
+            }
+            .security-text {
+                text-align: center;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            /* Adjust download button for mobile */
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.75rem;/**************************/
+                margin: 0.3rem;
             }
         }
         
@@ -771,25 +945,20 @@
             .hero h1 {
                 font-size: 2rem;
             }
-            
-            .nav-links {
-                flex-wrap: wrap;
+            .screenshot-item {
+                width: 200px;
+                height: 400px;
             }
-            
-            .nav-links li {
-                margin: 0.5rem;
+            .btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.8rem;
             }
-            
-            .phone-mockup {
-                width: 240px;
-                height: 500px;
-            }
-            
-            .app-time {
-                font-size: 2.5rem;
+            .values-grid {
+                grid-template-columns: 1fr;
             }
         }
-		       /******************** Screenshots Section **************************************/
+
+		/******************** Screenshots Section **************************************/
         .screenshots {
             padding: 5rem 0;
             background: linear-gradient(to bottom, #f0f4f8, #e6e9ff);
@@ -947,99 +1116,106 @@
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
     <header>
         <div class="container">
             <nav class="navbar">
-                <ul class="nav-links">
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="logo-mobile">
+				    Prayer mode</p>
+ 				   <span class="logo-tagline">
+  				    Ideas that come true for a better life
+  				  </span>
+				</div>
+
+                <ul class="nav-links" id="mobile-menu">
 					<li><a href="#hero">Introduction</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#app">Overview</a></li>
                     <li><a href="#security">Security</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#screenshots">Screenshots</a></li>
+					<li><a href="#about">About Us</a></li>
 					<li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-	<section class="hero" id="hero">
-		<div class="container">
-			<div class="hero-content">
-				<h1>Introducing <span>Prayer mode</span></h1>
-				<p>The app that auto-silences your device during prayer times, helping you maintain focus and reverence without distractions.</p>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 1.5rem 0;">
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-check" style="color: #4caf50;"></i>
-                    <span style="font-size: 0.9rem;">No Ads</span>
+   <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Introducing <span>Prayer mode</span></h1>
+                <p>The app that auto-silences your device during prayer times, helping you maintain focus and reverence without distractions.</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 1.5rem 0;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-check" style="color: #4caf50;"></i>
+                        <span style="font-size: 0.9rem;">No Ads</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-check" style="color: #4caf50;"></i>
+                        <span style="font-size: 0.9rem;">No Data Collection</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-shield-alt" style="color: #4caf50;"></i>
+                        <a href="#security" style="font-size: 0.9rem; color: inherit; text-decoration: none; cursor: pointer; border-bottom: 1px dotted rgba(255,255,255,0.5);">
+                        VirusTotal Verified
+                        </a>
+                    </div>	
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-check" style="color: #4caf50;"></i>
+                        <span style="font-size: 0.9rem;">No Publicity Included</span>
+                    </div>
+                </div>			
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 1.5rem 0;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-check" style="color: #4caf50;"></i>
+                        <span style="font-size: 0.9rem;">No Tracking</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-check" style="color: #4caf50;"></i>
+                        <span style="font-size: 0.9rem;">Completely Free</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-check" style="color: #4caf50;"></i>
+                        <span style="font-size: 0.9rem;">Source Code is Public</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-check" style="color: #4caf50;"></i>
+                        <span style="font-size: 0.9rem;">No Hidden Costs</span>
+                    </div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-check" style="color: #4caf50;"></i>
-                    <span style="font-size: 0.9rem;">No Data Collection</span>
+
+                <!-- Android Security Warning -->
+                <div style="max-width: 500px; margin: 1.5rem auto; padding: 1.2rem; background: rgba(255,255,255,0.1); border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.5);">
+                    <div style="display: flex; align-items: flex-start; gap: 0.8rem;">
+                        <div>
+                            <h4 style="margin: 0 0 0.5rem 0; color: white; font-size: 1rem;">Important: About The Android Security Warning</h4>
+                            <p style="margin: 0 0 0.8rem 0; font-size: 0.9rem; opacity: 0.9; line-height: 1.5;">
+                                <strong>When you download the file, you might see:</strong> 
+                                <em>"This APK file might be harmful for your device..."</em>
+                            </p>
+                            <p style="margin: 0; font-size: 0.9rem; opacity: 0.9; line-height: 1.5;">
+                                <strong>This is 100 % normal!</strong> Android shows this for all non-Google Play apps. 
+                                Our app is guaranteed safe and malware-free (verified by VirusTotal). Simply tap "OK" or "Keep" to continue. </p>
+                                <a href="https://prayermode.github.io/prayermode/help.html" style="color: #ADD8E6; text-decoration: underline; font-weight: bold;">How to enable "Installing from unknown sources"</a>
+                            </div>
+                    </div>
                 </div>
-				<div style="display: flex; align-items: center; gap: 0.5rem;">
-					<i class="fas fa-shield-alt" style="color: #4caf50;"></i>
-					<a href="#security" style="font-size: 0.9rem; color: inherit; text-decoration: none; cursor: pointer; border-bottom: 1px dotted rgba(255,255,255,0.5);">
-					VirusTotal Verified
-					</a>
-				</div>	
-				<div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-check" style="color: #4caf50;"></i>
-                    <span style="font-size: 0.9rem;">No Publicity Included</span>
-                </div>
-            </div>			
-			<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 1.5rem 0;">
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-check" style="color: #4caf50;"></i>
-                    <span style="font-size: 0.9rem;">No Tracking</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-check" style="color: #4caf50;"></i>
-                    <span style="font-size: 0.9rem;">Completely Free</span>
-                </div>
-			   <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-check" style="color: #4caf50;"></i>
-                    <span style="font-size: 0.9rem;">Source Code is Public</span>
-                </div>
-				<div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-check" style="color: #4caf50;"></i>
-                    <span style="font-size: 0.9rem;">No Hidden Costs</span>
+                <p style="font-size: 0.9rem; margin-bottom: 0.5rem; opacity: 0.8;">Available in English, العربية, Français, Türkçe, اُردُو, Bahasa Indonesia, Bahasa Malaysia and supported on Android 7+
+                <a href="https://prayermode.github.io/prayermode/release-notes.html" style="color: #ADD8E6; text-decoration: underline; font-weight: bold; font-size: 0.9rem; white-space: nowrap;">See Release Notes</a>
+
+                <!-- Download Button -->
+                <div>
+                    <a href="https://github.com/prayermode/apk/releases/download/v1.2/prayer-mode.apk" class="btn">
+                        <i class="fas fa-download"></i> Download Secure APK Now
+                    </a>
                 </div>
             </div>
-
-          	<!-- Android Security Warning -->
-		    <div style="max-width: 500px; margin: 1.5rem auto; padding: 1.2rem; background: rgba(255,255,255,0.1); border-radius: 10px; border: 1px solid rgba(212, 175, 55, 0.5);">
-                <div style="display: flex; align-items: flex-start; gap: 0.8rem;">
-                    <i class="fas fa-exclamation-triangle" style="color: var(--accent); font-size: 1.3rem; margin-top: 0.1rem;"></i>
-                    <div>
-                        <h4 style="margin: 0 0 0.5rem 0; color: white; font-size: 1rem;">Important: About The Android Security Warning</h4>
-                        <p style="margin: 0 0 0.8rem 0; font-size: 0.9rem; opacity: 0.9; line-height: 1.5;">
-                            <strong>When you download the file, you might see:</strong> 
-                            <em>"This APK file might be harmful for your device..."</em>
-                        </p>
-                        <p style="margin: 0; font-size: 0.9rem; opacity: 0.9; line-height: 1.5;">
-                            <strong>This is 100 % normal!</strong> Android shows this for all non-Google Play apps. 
-                            Our app is guaranteed safe and malware-free (verified by VirusTotal). Simply tap "OK" or "Keep" to continue. </p>
-                            <a href="https://prayermode.github.io/prayermode/help.html" style="color: #ADD8E6; text-decoration: underline; font-weight: bold;">How to enable "Installing from unknown sources"</a>
-                        </div>
-                </div>
-            </div>
-            <p style="font-size: 0.9rem; margin-bottom: 0.5rem; opacity: 0.8;">Available in English, العربية, Français, Türkçe, اُردُو, Bahasa Indonesia, Bahasa Malaysia and supported on Android 7+
-            <a href="https://prayermode.github.io/prayermode/release-notes.html" style="color: #ADD8E6; text-decoration: underline; font-weight: bold; font-size: 0.9rem; white-space: nowrap;">See Release Notes</a>
-
-            <!-- Download Button -->
-            <div>
-                <a href="https://github.com/prayermode/apk/releases/download/v1.2/prayer-mode.apk" class="btn">
-                    <i class="fas fa-download"></i> Download Secure APK Now
-                </a>
-            </div>
-		  </div>
-		</div>
-	</section>
-
-    <!-- Features Section -->
+        </div>
+    </section>
+    <!-- Features -->
     <section class="features" id="features">
         <div class="container">
             <div class="section-title">
@@ -1079,7 +1255,7 @@
         </div>
     </section>
 
-    <!-- App Showcase -->
+    <!-- Showcase -->
     <section class="app-showcase" id="app">
         <div class="container">
             <div class="app-container">
@@ -1103,8 +1279,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Security Section -->
+    <!-- Security -->
     <section class="security" id="security">
         <div class="container">
             <div class="section-title">
@@ -1131,7 +1306,6 @@
             </div>
         </div>
     </section>
-
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
         <div class="container">
@@ -1193,9 +1367,9 @@
             </div>
         </div>
     </section>
-	
-	    <!-- Screenshots Section -->
-    <section class="screenshots" id="screenshots">
+	    <!-- Screenshots -->
+
+	    <section class="screenshots" id="screenshots">
         <div class="container">
             <div class="section-title">
                 <h2>Screenshots</h2>
@@ -1208,36 +1382,26 @@
                 </button>
                 
                 <div class="screenshots-carousel">
-                    <!-- Screenshot 1 -->
                     <div class="screenshot-item">
                         <img src="screenshot1.jpg" alt="Prayer mode Home Screen">
-                        <!--<div class="screenshot-overlay">
-                            <h3>Home Screen</h3>
-                            <p>Clean interface showing user settings</p>
-                        </div>-->
-                    </div>
+                        </div>
                     
-                    <!-- Screenshot 2 -->
                     <div class="screenshot-item">
                         <img src="screenshot2.jpg" alt="Prayer mode Dark Theme">
                     </div>
                     
-                    <!-- Screenshot 3 -->
                     <div class="screenshot-item">
                         <img src="screenshot3.jpg" alt="Prayer Mode Notifications">
                     </div>
                     
-                    <!-- Screenshot 4 -->
                     <div class="screenshot-item">
                         <img src="screenshot4.jpg" alt="Prayer Mode Location Settings">
                     </div>
                     
-                    <!-- Screenshot 5 -->
                     <div class="screenshot-item">
                         <img src="screenshot5.jpg" alt="Prayer Mode DND Settings">
                     </div>
                     
-                    <!-- Screenshot 6 -->
                     <div class="screenshot-item">
                         <img src="screenshot6.jpg" alt="Prayer Mode Prayer Times">
                     </div>
@@ -1255,21 +1419,54 @@
             </div>
         </div>
     </section>
+	
+	    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission & Vision</h2>
+            </div>
+            <div class="about-content">
+                <div class="mission-statement animate">
+                    <p>We are a small team of developers that created Prayer mode app to serve our Ummah worldwide. Prayer mode addresses a simple need; focusing on Salah without being disturbed by mobile calls and notifications.</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card animate delay-1">
+                        <i class="fas fa-eye-slash value-icon"></i>
+                        <h4>Absolute Privacy</h4>
+                        <p>We believe that devotion and data should never mix. We commit to <strong>No Ads, No Tracking, and No Data Collection.</strong></p>
+                    </div>
+                    <div class="value-card animate delay-2">
+                        <i class="fas fa-users-cog value-icon"></i>
+                        <h4>Community-Driven</h4>
+                        <p>We rely on user feedback, suggestions, and translators to constantly refine and expand the app, ensuring it serves the global Ummah effectively. This is our sadaqah jariyah (ongoing charity) to the Muslim community.</p>
+                    </div>
+                    <div class="value-card animate delay-3">
+                        <i class="fas fa-code value-icon"></i>
+                        <h4>Transparency & Trust</h4>
+                        <p>We believe trust comes from transparency. As an <strong>Open Source</strong> project, our code is publicly available for anyone to review, guaranteeing there are no hidden malicious functions.</p>
+                    </div>
+                </div>
+			    
+                <div class="call-to-action-about">
+                    <p>Join us in our mission to serve Muslims worldwide.</p>
+                    <a href="https://github.com/prayermode" class="btn btn-outline" target="_blank">View Our GitHub Project <i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact -->
 
-    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
+                <!--<div class="footer-col">
                     <h3>Prayer mode</h3>
                     <p>Ideas that come true for a better life.</p>
                     <div class="social-links">
-                        <!--<a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>-->
-                    </div>
-                </div>
+                        </div>
+                </div>-->
                 <div class="footer-col">
                     <h3>The App</h3>
                     <ul class="footer-links">
@@ -1279,7 +1476,8 @@
                         <li><a href="#security">Security</a></li>
 						<li><a href="#testimonials">Testimonials</a></li>
 						<li><a href="#screenshots">Screenshots</a></li>
-                    </ul>
+                        <li><a href="#about">About Us</a></li>
+					</ul>
                 </div>
                 <div class="footer-col">
                     <h3>Legal</h3>
@@ -1324,6 +1522,29 @@
                 observer.observe(element);
             });
             
+            // Hamburger Menu Toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                // Change icon from bars to close
+                const icon = menuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+
+            // Close menu when a link is clicked (for single page navigation)
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    // Reset icon to bars
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                });
+            });
+
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -1339,16 +1560,13 @@
                 const now = new Date();
                 const hours = now.getHours().toString().padStart(2, '0');
                 const minutes = now.getMinutes().toString().padStart(2, '0');
-                document.querySelector('.app-time').textContent = `${hours}:${minutes}`;
+                // document.querySelector('.app-time').textContent = `${hours}:${minutes}`; // Original element not found in provided code, skipping
             }
             
             updateMockupTime();
             setInterval(updateMockupTime, 60000);
-        });
-		
-		
+        
 		       // Screenshots Carousel Functionality
-        document.addEventListener('DOMContentLoaded', function() {
             const carousel = document.querySelector('.screenshots-carousel');
             const prevButton = document.querySelector('.carousel-nav.prev');
             const nextButton = document.querySelector('.carousel-nav.next');
@@ -1356,7 +1574,8 @@
             const screenshotItems = document.querySelectorAll('.screenshot-item');
             
             let currentIndex = 0;
-            const itemWidth = screenshotItems[0].offsetWidth + 32; // width + gap
+            // Recalculate itemWidth dynamically for better responsiveness
+            const itemWidth = screenshotItems[0] ? screenshotItems[0].offsetWidth + 32 : 0; 
             
             // Function to update carousel position
             function updateCarousel() {
@@ -1410,6 +1629,7 @@
             
             // Update indicators on scroll
             carousel.addEventListener('scroll', () => {
+                if (itemWidth === 0) return; // Prevent division by zero
                 const scrollPosition = carousel.scrollLeft;
                 currentIndex = Math.round(scrollPosition / itemWidth);
                 
@@ -1422,5 +1642,3 @@
   </script>
 </body>
 </html>
-
-
