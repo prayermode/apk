@@ -89,35 +89,31 @@
             color: var(--accent);
         }
 
-/* Logo/Title for Mobile View */
-.logo-mobile {
-    display: none; 
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: white;
-    font-family: 'Playfair Display', serif;
-    /* Added alignment for the tagline */
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1; /* Adjust spacing */
-}
+		.logo-mobile {
+ 		   display: none; 
+ 		   font-size: 1.5rem;
+ 		   font-weight: 600;
+		   color: white;
+		   font-family: 'Playfair Display', serif;
+		   display: flex;
+ 		   flex-direction: column;
+ 		   line-height: 1.1;
+		}
 
-/* NEW CSS for the Tagline */
-.logo-tagline {
-    font-size: 0.7rem; /* Make it small */
-    font-style: italic; /* Make it italic */
-    font-weight: 400;
-    opacity: 0.8; /* Slightly fade it out */
-    font-family: 'Poppins', sans-serif; /* Use the body font for legibility */
-}
+		.logo-tagline {
+    		font-size: 0.7rem;
+    		font-style: italic;
+    		font-weight: 400;
+    		opacity: 0.8;
+    		font-family: 'Poppins', sans-serif;
+		}
 
-/* Ensure the logo-mobile is displayed on smaller screens */
-@media (max-width: 992px) {
-    .logo-mobile {
-        display: flex; /* Changed from block to flex for column alignment */
-        margin-left: 1rem;
-    }
-}
+		@media (max-width: 992px) {
+    		.logo-mobile {
+        	display: flex;
+       	 	margin-left: 1rem;
+    	}
+	}
         
         .nav-links {
             display: flex;
@@ -355,94 +351,89 @@
         }
         
 		/****************************** App Showcase **********************************/
-.app-showcase {
-    padding: 5rem 0;
-    background: linear-gradient(to bottom, #f0f4f8, #e6e9ff);
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-}
+		.app-showcase {
+   			padding: 5rem 0;
+    		background: linear-gradient(to bottom, #f0f4f8, #e6e9ff);
+    		position: relative;
+    		overflow: hidden;
+    		text-align: center;
+		}
 
-.app-showcase:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M40,40 C80,20 120,20 160,40" fill="none" stroke="rgba(26, 58, 95, 0.05)" stroke-width="2"/></svg>');
-    opacity: 0.3;
-}
+		.app-showcase:before {
+    		content: "";
+    		position: absolute;
+    		top: 0;
+    		left: 0;
+    		width: 100%;
+    		height: 100%;
+    		background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M40,40 C80,20 120,20 160,40" fill="none" stroke="rgba(26, 58, 95, 0.05)" stroke-width="2"/></svg>');
+    		opacity: 0.3;
+		}
 
-/* NEW: Centering Container */
-.app-content-centered {
-    max-width: 850px; /* Keep content readable */
-    margin: 0 auto; /* Centers the content block itself */
-}
+		.app-content-centered {
+    		max-width: 850px;
+   			margin: 0 auto;
+		}
 
-/* NEW: Image Wrapper */
-.app-image-in-content {
-    max-width: 500px; /* Sets a limit on image width */
-    margin: 2rem auto 2.5rem auto; /* Vertical margin, horizontal center */
-    text-align: center;
-}
+		.app-image-in-content {
+    		max-width: 500px;
+    		margin: 2rem auto 2.5rem auto;
+    		text-align: center;
+		}
 
-.app-showcase-image {
-    width: 100%;
-    max-width: 1024px;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
+		.app-showcase-image {
+    		width: 100%;
+    		max-width: 1024px;
+    		height: auto;
+    		border-radius: 20px;
+    		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    		transition: transform 0.5s ease, box-shadow 0.5s ease;
+		}
 
-.app-showcase-image:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-}
+		.app-showcase-image:hover {
+    		transform: translateY(-10px);
+    		box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+		}
 
-/* MODIFIED: H2 inside the new container */
-.app-content-centered h2 {
-    font-size: 2rem; /* Increased size for better impact */
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-    font-family: 'Playfair Display', serif;
-}
+		.app-content-centered h2 {
+    		font-size: 2rem;
+    		color: var(--primary);
+    		margin-bottom: 1.5rem;
+    		font-family: 'Playfair Display', serif;
+		}
 
-/* MODIFIED: Paragraphs inside the new container */
-.app-content-centered p {
-    margin-bottom: 1.5rem;
-    color: #555;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    max-width: 700px; /* Ensures text doesn't span too wide */
-    margin-left: auto;
-    margin-right: auto;
-}
+		.app-content-centered p {
+    		margin-bottom: 1.5rem;
+    		color: #555;
+    		font-size: 1.1rem;
+    		line-height: 1.8;
+    		max-width: 700px;
+    		margin-left: auto;
+    		margin-right: auto;
+		}
 
-/* MODIFIED: Bullets (Left-aligned within the centered block) */
-.app-bullets {
-    list-style: none;
-    max-width: 550px; /* Limit width for readability */
-    margin: 2rem auto; /* Center the list block */
-    text-align: left; /* Crucial: List items text should be left-aligned */
-}
+		.app-bullets {
+    		list-style: none;
+    		max-width: 550px;
+    		margin: 2rem auto;
+    		text-align: left;
+		}
 
-.app-bullets li {
-    margin-bottom: 1rem;
-    padding-left: 2rem;
-    position: relative;
-}
+		.app-bullets li {
+    		margin-bottom: 1rem;
+    		padding-left: 2rem;
+    		position: relative;
+		}
 
-.app-bullets li:before {
-    content: "\f00c";
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--accent);
-}
+		.app-bullets li:before {
+    		content: "\f00c";
+    		font-family: "Font Awesome 6 Free";
+    		font-weight: 900;
+   			position: absolute;
+    		left: 0;
+    		top: 0;
+   			color: var(--accent);
+		}
        
         /********************************* Security Section **********************************/
         .security {
@@ -840,7 +831,6 @@
         
 		/* Responsive Design */
         @media (max-width: 992px) {
-            /* Header and Mobile Menu Setup */
             header .container {
                 display: flex;
                 justify-content: space-between;
@@ -855,11 +845,10 @@
             }
             .menu-toggle {
                 display: block; 
-                order: -1; /* Place toggle on the left */
+                order: -1;
             }
 
             .nav-links {
-                /* Mobile Menu Styles (Hidden by default) */
                 display: none;
                 flex-direction: column;
                 position: absolute;
@@ -877,10 +866,10 @@
             }
 
             .nav-links.active {
-                display: flex; /* Show when active */
-				max-height: calc(100vh - 60px); /* Max height is viewport height minus header height (approx. 60px) */
-        overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
-        -webkit-overflow-scrolling: touch; /* Improved scrolling performance on iOS */
+                display: flex;
+				max-height: calc(100vh - 60px);
+        		overflow-y: auto;
+        		-webkit-overflow-scrolling: touch;
             }
 
             .nav-links li {
@@ -904,7 +893,7 @@
                 min-height: 80vh; 
             }
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
                 margin-bottom: 2.5rem; 
             }
             .hero p {
@@ -941,7 +930,7 @@
             /* Adjust download button for mobile */
             .btn {
                 padding: 0.7rem 1.5rem;
-                font-size: 0.75rem;/**************************/
+                font-size: 0.7rem;/**************************/
                 margin: 0.3rem;
             }
         }
@@ -1133,7 +1122,6 @@
   				    Ideas that come true for a better life
   				  </span>
 				</div>
-
                 <ul class="nav-links" id="mobile-menu">
 					<li><a href="#hero">Introduction</a></li>
                     <li><a href="#features">Features</a></li>
@@ -1220,6 +1208,7 @@
             </div>
         </div>
     </section>
+	
     <!-- Features -->
     <section class="features" id="features">
         <div class="container">
@@ -1261,18 +1250,15 @@
     </section>
 
     <!-- Showcase -->
-<section class="app-showcase" id="app">
-    <div class="container">
-        <div class="app-content-centered">
-            
-            <h2>Pray without being disturbed during your Salah.</h2>
-
+	<section class="app-showcase" id="app">
+    	<div class="container">
+        	<div class="app-content-centered">            
+            	<h2>Pray without being disturbed during your Salah.</h2>
             <div class="app-image-in-content">
                 <img src="feature_EN.jpg" alt="Feature" class="app-showcase-image">
-            </div>
-            
+            </div>            
             <p>Prayer mode is designed for individuals who value uninterrupted spiritual practice. Our intelligent system ensures your device respects your sacred moments without requiring manual intervention.</p>
-            
+           
             <ul class="app-bullets">
                 <li>23 Prayer Calculation Methods powered by aladhan.com API</li>
                 <li>Customizable prayer duration and settings</li>
@@ -1313,6 +1299,7 @@
             </div>
         </div>
     </section>
+	
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
         <div class="container">
@@ -1374,54 +1361,48 @@
             </div>
         </div>
     </section>
+	
 	    <!-- Screenshots -->
-
 	    <section class="screenshots" id="screenshots">
         <div class="container">
             <div class="section-title">
                 <h2>Screenshots</h2>
                 <p>Explore the intuitive interface and powerful features of Prayer mode</p>
-            </div>
-            
+            </div>            
             <div class="screenshots-container">
                 <button class="carousel-nav prev" aria-label="Previous screenshot">
                     <i class="fas fa-chevron-left"></i>
-                </button>
-                
+                </button>                
                 <div class="screenshots-carousel">
                     <div class="screenshot-item">
                         <img src="screenshot1.jpg" alt="Prayer mode Home Screen">
-                        </div>
-                    
+                        </div>                    
                     <div class="screenshot-item">
                         <img src="screenshot2.jpg" alt="Prayer mode Dark Theme">
-                    </div>
-                    
+                    </div>                    
                     <div class="screenshot-item">
                         <img src="screenshot3.jpg" alt="Prayer Mode Notifications">
-                    </div>
-                    
+                    </div>                    
                     <div class="screenshot-item">
                         <img src="screenshot4.jpg" alt="Prayer Mode Location Settings">
-                    </div>
-                    
+                    </div>                    
                     <div class="screenshot-item">
                         <img src="screenshot5.jpg" alt="Prayer Mode DND Settings">
-                    </div>
-                    
+                    </div>                    
                     <div class="screenshot-item">
                         <img src="screenshot6.jpg" alt="Prayer Mode Prayer Times">
                     </div>
-                </div>
-                
+                </div>                
                 <button class="carousel-nav next" aria-label="Next screenshot">
                     <i class="fas fa-chevron-right"></i>
-                </button>
-                
+                </button>                
                 <div class="screenshot-indicators">
                     <div class="indicator active" data-index="0"></div>
                     <div class="indicator" data-index="1"></div>
                     <div class="indicator" data-index="2"></div>
+					<div class="indicator" data-index="3"></div>
+					<div class="indicator" data-index="4"></div>
+					<div class="indicator" data-index="5"></div>
                 </div>
             </div>
         </div>
@@ -1463,8 +1444,8 @@
             </div>
         </div>
     </section>
+	
     <!-- Contact -->
-
     <footer id="contact">
         <div class="container">
             <div class="footer-grid">
@@ -1649,10 +1630,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
